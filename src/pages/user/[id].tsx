@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useStore } from "../../store";
+import { User, useStore } from "../../store";
 
 const UserDetails = () => {
   const router = useRouter();
   const { id } = router.query;
   const { users } = useStore();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | undefined>(undefined);
 
   useEffect(() => {
     if (id && users.length > 0) {
